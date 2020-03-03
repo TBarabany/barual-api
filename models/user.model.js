@@ -10,7 +10,7 @@ const userSchema = new Schema(
     surname: { type: String, required: true }, 
     email: { type: String, required: true }, 
     password: { type: String, required: true },
-    admin: { type: Boolean, required: true },
+    admin: { type: Boolean, default: true },
     }, 
     {
         timestamps: true, 
