@@ -16,12 +16,15 @@ const propertiesCorrelation = {
 
 module.exports.list = (req, res, next) => {
   const { type } = req.query
+  console.log(type)
 
   const criteria = {}
 
   if (type) {
-    criteria.propertyType = type
+    criteria.propertyType = propertiesCorrelation[type].modelName
   }
+
+  console.log(criteria)
 
   Property.find(criteria)
     .then(

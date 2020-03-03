@@ -5,6 +5,7 @@ const gender = require('../../constants/gender')
 
 const roomSchema = Property.discriminator('Room', new Schema(
   {
+    modality: { type: String, required: true, default: 'rent' },
     bathrooms: { type: Number, required: true },
     rooms: { type: Number, required: true },
     pets: { type: Boolean, required: false },

@@ -7,11 +7,14 @@ const authMiddleware = require('../middlewares/auth.middleware')
 
 
 //USER ROUTES
-router.get('/users', authMiddleware.isAuthenticated, usercontroller.list)
+router.get('/users', authMiddleware.isNotAuthenticated, usercontroller.list)
 router.get('/users/:id', authMiddleware.isAuthenticated, usercontroller.detail)
-router.post('/users', authMiddleware.isAuthenticated, usercontroller.create)
+router.post('/users', authMiddleware.isNotAuthenticated, usercontroller.create)
 router.patch('/users/:id', authMiddleware.isAuthenticated, usercontroller.edit)
 router.delete('/users/:id', authMiddleware.isAuthenticated, usercontroller.delete)
+
+router.post('/login', authMiddleware.isNotAuthenticated, usercontroller.doLogin)
+router.post('/logout', authMiddleware.isAuthenticated, usercontroller.logout)
 
 //PROPERTIES ROUTES
 router.get('/properties', authMiddleware.isNotAuthenticated, propertiescontroller.list)

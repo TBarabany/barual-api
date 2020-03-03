@@ -12,7 +12,7 @@ const cors = require('./config/cors.config')
  * DB config
  */
 require('./config/db.config');
-
+const session = require('./config/session.config');
 /*
 * Mongoose config
  */
@@ -27,7 +27,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-
+app.use(session);
 
 /*
  * Configure routes
